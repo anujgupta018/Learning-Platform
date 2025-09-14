@@ -1,25 +1,27 @@
 import express from "express";
 import { protect, authorize } from "../middleware/auth";
-import Lecture from "../models/Lecture";
 import Course from "../models/Course";
 
 const router = express.Router();
 
+// Create Course -> only Instructor
 router.post("/", protect, authorize("Instructor"), async (req, res) => {
   const { title, description } = req.body;
   try {
     const course = new Course({
       title,
       description,
-      instructor: req.user!._id,
+      instructor: req.user!.id, // ✅ fixed this line
     });
     await course.save();
     res.status(201).json(course);
   } catch (err) {
-    res.status(500).json({ message: `Server Error` });
+    console.error("Create course error:", err);
+    res.status(500).json({ message: "Server Error" });
   }
 });
 
+// Get all courses -> Instructor & Student
 router.get(
   "/",
   protect,
@@ -29,11 +31,13 @@ router.get(
       const courses = await Course.find().populate("instructor", "name email");
       res.json(courses);
     } catch (err) {
-      res.status(500).json({ message: `Server Error` });
+      console.error("Get courses error:", err);
+      res.status(500).json({ message: "Server Error" });
     }
   }
 );
 
+// Get course details -> Instructor & Student
 router.get(
   "/:id",
   protect,
@@ -41,11 +45,16 @@ router.get(
   async (req, res) => {
     try {
       const course = await Course.findById(req.params.id).populate("lectures");
-      if (!course) return res.status(404).json({ message: "Course not found" });
+      if (!course) {
+        return res.status(404).json({ message: "Course not found" });
+      }
       res.json(course);
     } catch (err) {
-      res.status(500).json({ message: `Server Error` });
+      console.error("Get course error:", err);
+      res.status(500).json({ message: "Server Error" });
     }
   }
 );
+
 export default router;
+//68c649f138cc8de95fce48a3
