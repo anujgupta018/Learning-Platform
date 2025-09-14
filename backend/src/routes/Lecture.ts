@@ -5,10 +5,6 @@ import Lecture from "../models/Lecture";
 
 const router = express.Router();
 
-/**
- * ROUTE: POST /api/lectures/:courseId
- * DESC: Add a lecture to a course (Instructor only)
- */
 router.post(
   "/:courseId",
   protect,
@@ -63,11 +59,6 @@ router.post(
   }
 );
 
-/**
- * ROUTE: GET /api/lectures/course/:courseId
- * DESC: Get all lectures for a course (Instructor & Student)
- * NOTE: Must come before "/:id" route to avoid route conflicts
- */
 router.get(
   "/course/:courseId",
   protect,
@@ -88,10 +79,6 @@ router.get(
   }
 );
 
-/**
- * ROUTE: GET /api/lectures/:id
- * DESC: Get a single lecture by ID (Instructor & Student)
- */
 router.get(
   "/:id",
   protect,
@@ -109,10 +96,6 @@ router.get(
   }
 );
 
-/**
- * ROUTE: PATCH /api/lectures/:lectureId
- * DESC: Update a lecture (Instructor only)
- */
 router.patch(
   "/:lectureId",
   protect,
@@ -147,10 +130,6 @@ router.patch(
   }
 );
 
-/**
- * ROUTE: DELETE /api/lectures/:lectureId
- * DESC: Delete a lecture (Instructor only)
- */
 router.delete(
   "/:lectureId",
   protect,
@@ -169,15 +148,11 @@ router.delete(
           .status(403)
           .json({ message: "Not authorized to delete this lecture" });
       }
-
-      // Remove lecture from course
       course.lectures = course.lectures.filter(
         (id) => id.toString() !== lecture._id.toString()
       );
       await course.save();
-
-      // Delete lecture
-      await lecture.deleteOne(); // <-- use deleteOne instead of remove
+      await lecture.deleteOne();
       res.json({ message: "Lecture deleted successfully" });
     } catch (err) {
       console.error(err);

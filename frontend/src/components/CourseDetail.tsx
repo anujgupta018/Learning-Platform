@@ -21,7 +21,9 @@ export default function CourseDetail() {
   const { id } = useParams<{ id: string }>();
   const [course, setCourse] = useState<Course | null>(null);
   const [loading, setLoading] = useState(true);
-
+  useEffect(() => {
+    if (id) localStorage.setItem("currentCourseId", id);
+  }, [id]);
   useEffect(() => {
     const fetchCourse = async () => {
       try {

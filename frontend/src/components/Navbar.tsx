@@ -13,7 +13,7 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="sticky top-4 z-50 mx-4 md:mx-8 lg:mx-16 xl:mx-32 rounded-xl backdrop-blur-lg bg-gradient-to-r from-red-600/30 via-red-600/30 to-red-700/30 border border-white/20 shadow-xl">
+    <nav className="sticky top-4 z-50 mx-4 md:mx-8 lg:mx-16 xl:mx-32 rounded-xl backdrop-blur-lg bg-gradient-to-r from-purple-900/30 via-indigo-900/30 to-blue-900/30 border border-white/20 shadow-xl">
       <div className="max-w-7xl mx-auto flex justify-between items-center p-4">
         <Link
           to="/"
@@ -21,8 +21,6 @@ export default function Navbar() {
         >
           Learning Platform
         </Link>
-
-        {/* Navigation Links */}
         <div className="flex items-center gap-6">
           {user ? (
             <>

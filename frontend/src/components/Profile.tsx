@@ -48,8 +48,6 @@ export default function Profile() {
             {profile.role}
           </span>
         </div>
-
-        {/* Right: Info */}
         <div className="flex-1 w-full space-y-6">
           <div className="flex justify-between p-6 bg-white/10 rounded-xl shadow-inner text-lg">
             <span className="font-medium text-white/80">Name:</span>

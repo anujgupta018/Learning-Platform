@@ -23,10 +23,9 @@ export default function Courses() {
     };
     fetchCourses();
   }, []);
-
   return (
-    <div>
-      <h2 className="text-2xl font-bold mb-6">Available Courses</h2>
+    <div className="mt-16">
+      <h2 className="text-2xl font-bold mb-6 text-white">Available Courses</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {courses.map((course) => (
           <div

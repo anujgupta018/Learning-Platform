@@ -9,7 +9,6 @@ export default function CreateCourse() {
 
   const createCourse = async () => {
     if (!title.trim()) return alert("Title is required");
-
     try {
       const res = await API.post("/courses", { title, description });
       alert("Course created successfully!");
@@ -19,7 +18,6 @@ export default function CreateCourse() {
       alert(err.response?.data?.message || "Failed to create course");
     }
   };
-
   return (
     <div className="min-h-screen w-full bg-gradient-to-br from-purple-900 via-indigo-900 to-blue-900 flex items-center justify-center p-6">
       <div className="w-full max-w-3xl bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl shadow-2xl p-8 md:p-12 space-y-6">
