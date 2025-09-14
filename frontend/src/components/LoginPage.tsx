@@ -2,7 +2,8 @@ import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import { Button } from "./ui/button";
-
+import { MagicCard } from "./magicui/magic-card";
+import { CardTitle } from "./ui/card";
 
 export default function Login() {
   const { setUser } = useContext(AuthContext);
@@ -32,11 +33,46 @@ export default function Login() {
   };
 
   return (
-    <div className="max-w-md mx-auto bg-white p-8 rounded shadow">
-      <h2 className="text-2xl font-bold mb-6">Login</h2>
-      <input type="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="Email" className="w-full mb-4 p-3 border rounded"/>
-      <input type="password" value={password} onChange={e => setPassword(e.target.value)} placeholder="Password" className="w-full mb-4 p-3 border rounded"/>
-      <Button onClick={handleLogin} className="w-full bg-purple-600 hover:bg-purple-700 text-white">Login</Button>
-    </div>
+    <MagicCard className="mt-16"  gradientColor={"#262626"}>
+      <div
+        className="max-w-md mx-auto p-8 rounded-3xl shadow-2xl
+                   backdrop-blur-md"
+      >
+        <CardTitle className=" text-bold text-white text-center text-3xl mb-6">
+          Login
+        </CardTitle>
+
+        <input
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          placeholder="Email"
+          className="w-full mb-4 p-4 rounded-xl border border-white/30 
+                     bg-white/10 text-white placeholder-white/70 
+                     focus:outline-none focus:ring-2 focus:ring-pink-400 
+                     focus:border-transparent transition-all duration-300"
+        />
+        <input
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          placeholder="Password"
+          className="w-full mb-6 p-4 rounded-xl border border-white/30 
+                     bg-white/10 text-white placeholder-white/70 
+                     focus:outline-none focus:ring-2 focus:ring-pink-400 
+                     focus:border-transparent transition-all duration-300"
+        />
+
+        <Button
+          onClick={handleLogin}
+          className="w-full py-4 rounded-xl text-lg font-semibold
+                     bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500
+                     hover:from-pink-400 hover:via-purple-400 hover:to-indigo-400
+                     text-white shadow-xl hover:shadow-pink-500/50 transition-all duration-300"
+        >
+          Login
+        </Button>
+      </div>
+    </MagicCard>
   );
 }

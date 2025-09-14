@@ -2,6 +2,7 @@ import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import { Button } from "./ui/button";
+import { MagicCard } from "./magicui/magic-card";
 
 export default function Register() {
   const { setUser } = useContext(AuthContext);
@@ -33,6 +34,7 @@ export default function Register() {
   };
 
   return (
+    <MagicCard className="mt-16">
     <div className="max-w-md mx-auto bg-white p-8 rounded shadow">
       <h2 className="text-2xl font-bold mb-6">Register</h2>
       <input type="text" value={name} onChange={e => setName(e.target.value)} placeholder="Name" className="w-full mb-4 p-3 border rounded"/>
@@ -44,5 +46,6 @@ export default function Register() {
       </select>
       <Button onClick={handleRegister} className="w-full bg-purple-600 hover:bg-purple-700 text-white">Register</Button>
     </div>
+        </MagicCard>
   );
 }

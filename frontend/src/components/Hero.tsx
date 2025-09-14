@@ -12,7 +12,6 @@ export default function Hero() {
       </div>
 
       <div className="relative z-10 text-center max-w-6xl mx-auto px-6 space-y-16">
-        {/* Hero Header */}
         <div className="space-y-8">
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 text-white/80 text-sm font-medium">
           </div>
@@ -27,8 +26,6 @@ export default function Hero() {
             unlimited potential.
           </p>
         </div>
-
-        {/* Stats Section */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
           <div className="text-center space-y-2">
             <div className="text-3xl md:text-4xl font-bold text-white">
@@ -53,8 +50,6 @@ export default function Hero() {
             <div className="text-white/60 text-sm">Support</div>
           </div>
         </div>
-
-        {/* Role-based Dashboard */}
         {user ? (
           user.role === "Instructor" ? (
             <div className="bg-white/5 backdrop-blur-md rounded-3xl p-8 border border-white/10 shadow-2xl space-y-8">
@@ -331,7 +326,6 @@ export default function Hero() {
           )
         ) : (
           <div className="space-y-12">
-            {/* Call to Action for Non-Authenticated Users */}
             <div className="bg-white/5 backdrop-blur-md rounded-3xl p-8 border border-white/10 shadow-2xl space-y-8">
               <h2 className="text-3xl font-bold text-white">
                 Choose Your Path
@@ -498,7 +492,6 @@ export default function Hero() {
               </div>
             </div>
 
-            {/* Action Buttons */}
             <div className="flex flex-wrap justify-center gap-6">
               <Link to="/register">
                 <Button className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-500 hover:to-blue-500 text-white px-12 py-4 rounded-2xl text-lg font-semibold shadow-2xl hover:shadow-purple-500/25 transition-all duration-300 hover:scale-105">
@@ -516,8 +509,6 @@ export default function Hero() {
             </div>
           </div>
         )}
-
-        {/* Feature Highlights */}
         <div className="grid md:grid-cols-3 gap-8 mt-16">
           <div className="text-center space-y-4">
             <div className="w-16 h-16 bg-gradient-to-r from-emerald-400 to-cyan-400 rounded-2xl flex items-center justify-center mx-auto">
