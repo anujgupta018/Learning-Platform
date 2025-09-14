@@ -10,7 +10,6 @@ import AddLecture from "./components/AddLecture";
 import Login from "./components/LoginPage";
 import Register from "./components/RegisterPage";
 import Progress from "./components/Progress";
-import Quiz from "./components/Quiz";
 import ProtectedRoute from "./components/ProtectedRoute";
 
 export default function App() {
@@ -77,14 +76,6 @@ export default function App() {
             element={
               <ProtectedRoute roles={["Student"]}>
                 <Progress />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/quiz/:id"
-            element={
-              <ProtectedRoute roles={["Student"]}>
-                <Quiz />
               </ProtectedRoute>
             }
           />

@@ -7,14 +7,12 @@ export default function Hero() {
   const { user } = useContext(AuthContext);
 
   return (
-    <div className="relative min-h-screen flex flex-col mb-4 items-center justify-center overflow-hidden">
-      <div className="absolute inset-0">
-      </div>
+    <div className="relative min-h-screen flex flex-col mb-2 items-center justify-center overflow-hidden">
+      <div className="absolute inset-0"></div>
 
       <div className="relative z-10 text-center max-w-6xl mx-auto px-6 space-y-16">
         <div className="space-y-8">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 text-white/80 text-sm font-medium">
-          </div>
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 text-white/80 text-sm font-medium"></div>
 
           <h1 className="text-5xl md:text-7xl font-bold bg-gradient-to-r from-white via-purple-200 to-blue-200 bg-clip-text text-transparent leading-tight">
             Learn. Teach. Excel.
@@ -104,33 +102,6 @@ export default function Hero() {
                     </p>
                   </div>
                 </Link>
-
-                <Link to="/add-lecture" className="group">
-                  <div className="bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 p-6 rounded-2xl transition-all duration-300 group-hover:scale-105">
-                    <div className="flex items-center gap-3 mb-3">
-                      <svg
-                        className="w-6 h-6 text-white"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"
-                        />
-                      </svg>
-                      <h3 className="text-xl font-semibold text-white">
-                        Add Content
-                      </h3>
-                    </div>
-                    <p className="text-white/80 text-sm">
-                      Create lectures, quizzes, and assessments
-                    </p>
-                  </div>
-                </Link>
-
                 <Link to="/courses" className="group">
                   <div className="bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 p-6 rounded-2xl transition-all duration-300 group-hover:scale-105">
                     <div className="flex items-center gap-3 mb-3">

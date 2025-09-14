@@ -35,7 +35,7 @@ export default function Register() {
 
   return (
     <MagicCard className="mt-16">
-    <div className="max-w-md mx-auto bg-white p-8 rounded shadow">
+    <div className="max-w-md mx-auto bg-white p-8 rounded-xl shadow backdrop:blur-in">
       <h2 className="text-2xl font-bold mb-6">Register</h2>
       <input type="text" value={name} onChange={e => setName(e.target.value)} placeholder="Name" className="w-full mb-4 p-3 border rounded"/>
       <input type="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="Email" className="w-full mb-4 p-3 border rounded"/>

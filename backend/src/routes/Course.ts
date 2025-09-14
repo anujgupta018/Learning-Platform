@@ -4,14 +4,13 @@ import Course from "../models/Course";
 
 const router = express.Router();
 
-// Create Course -> only Instructor
 router.post("/", protect, authorize("Instructor"), async (req, res) => {
   const { title, description } = req.body;
   try {
     const course = new Course({
       title,
       description,
-      instructor: req.user!.id, // ✅ fixed this line
+      instructor: req.user!.id,
     });
     await course.save();
     res.status(201).json(course);
@@ -21,7 +20,6 @@ router.post("/", protect, authorize("Instructor"), async (req, res) => {
   }
 });
 
-// Get all courses -> Instructor & Student
 router.get(
   "/",
   protect,
@@ -37,7 +35,6 @@ router.get(
   }
 );
 
-// Get course details -> Instructor & Student
 router.get(
   "/:id",
   protect,
