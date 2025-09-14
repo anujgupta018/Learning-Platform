@@ -7,7 +7,7 @@ export default function Hero() {
   const { user } = useContext(AuthContext);
 
   return (
-    <div className="relative min-h-screen flex flex-col mb-2 items-center justify-center overflow-hidden">
+    <div className="relative min-h-screen flex flex-col mb-1 items-center justify-center overflow-hidden">
       <div className="absolute inset-0"></div>
 
       <div className="relative z-10 text-center max-w-6xl mx-auto px-6 space-y-16">

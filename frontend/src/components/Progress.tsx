@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import { Button } from "./ui/button";
-import API from "@/api/axios"; // axios instance with baseURL and token interceptor
+import API from "@/api/axios";
+import { useNavigate } from "react-router-dom";
 
 export default function Progress() {
+  const navigate = useNavigate();
   const [progress, setProgress] = useState<{
     completed: number;
     total: number;
@@ -51,7 +53,7 @@ export default function Progress() {
         <Button
           variant="outline"
           className="border-white text-white hover:border-gray-300 hover:bg-white/20 transition-all"
-          onClick={() => (window.location.href = "/courses")}
+          onClick={() => navigate("/courses")}
         >
           Browse Courses
         </Button>

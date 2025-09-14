@@ -47,7 +47,6 @@ router.post(
         quizQuestions,
       });
       await lecture.save();
-
       course.lectures.push(lecture._id);
       await course.save();
 

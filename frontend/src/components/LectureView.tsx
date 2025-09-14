@@ -54,23 +54,6 @@ export default function LectureView() {
       .catch((err) => console.error(err));
   };
 
-  const submitQuiz = () => {
-    fetch(`http://localhost:5000/api/user/quiz/${id}`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${localStorage.getItem("token")}`,
-      },
-      body: JSON.stringify({ answers }),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        setScore(data.score);
-        setSubmitted(true);
-      })
-      .catch((err) => console.error(err));
-  };
-
   if (!lecture) return <div>Loading...</div>;
 
   return (
