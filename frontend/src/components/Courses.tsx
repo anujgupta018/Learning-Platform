@@ -23,6 +23,30 @@ export default function Courses() {
     };
     fetchCourses();
   }, []);
+  const handleDelete = async (_id: string) => {
+    console.log(`${_id}`);
+    try {
+      await API.delete(`/courses/${_id}`);
+      setCourses((prevCourses) =>
+        prevCourses.filter((course) => course._id !== _id)
+      );
+      alert("Course Deleted Successfully");
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  useEffect(() => {
+    const fetchCourses = async () => {
+      try {
+        const res = await API.delete("/courses");
+        alert("Course Deleted Successfully");
+        setCourses(res.data);
+      } catch (err) {
+        console.log(err);
+      }
+      fetchCourses();
+    };
+  });
   return (
     <div className="mt-16">
       <h2 className="text-2xl font-bold mb-6 text-white">Available Courses</h2>
@@ -37,6 +61,9 @@ export default function Courses() {
             <Link to={`/courses/${course._id}`}>
               <Button variant="outline">View Course</Button>
             </Link>
+            <Button onClick={() => handleDelete(course._id)}>
+              Delete Course
+            </Button>
           </div>
         ))}
       </div>

@@ -53,5 +53,18 @@ router.get(
   }
 );
 
+router.delete("/:id", protect, authorize("Instructor"), async (req, res) => {
+  try {
+    const course = await Course.findById(req.params.id);
+    if (!course) {
+      return res.status(404).json({ message: "No Course" });
+    }
+    await Course.findByIdAndDelete(req.params.id);
+    res.json({ message: "Course Deleted" });
+  } catch (err) {
+    console.log(err);
+  }
+});
 export default router;
 //68c649f138cc8de95fce48a3
+// eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4Y2FhMGIwMjlhMzQxNmVlMjZhMTg2YSIsInJvbGUiOiJJbnN0cnVjdG9yIiwiaWF0IjoxNzU4MTA5ODcyLCJleHAiOjE3NTgxOTYyNzJ9.WNGL1rdEYGAqG1fyow9dDLNGvRG_eA76_WA__SRUR5w
